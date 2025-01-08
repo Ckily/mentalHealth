@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神经病测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1rem;
+            line-height: 1.8;
+            color:#818181;
+        }
+        .question {
+            margin-bottom: 20px;
+            display: none;
+        }
+        .option {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .option:hover {
+            text-decoration: underline;
+        }
+        .result {
+            margin-top: 50px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="questionContainer">
+        <div class="question" id="q1" style="display: block;">
+            吃西红柿炒蛋时，你常烦恼该先吃西红柿还是先吃蛋吗？
+            <div class="option" onclick="goto(2)">是——→　前往2</div>
+            <div class="option" onclick="goto(4)">否——→　前往4</div>
+        </div>
+        <div class="question" id="q2">
+            你敢不惧他人的耻笑，牵着驼鸟去逛长安街吗？
+            <div class="option" onclick="goto(3)">是——→　前往3</div>
+            <div class="option" onclick="goto(6)">否——→　前往6</div>
+        </div>
+        <div class="question" id="q3">
+            你经常为了睡觉时，手要摆在哪里而失眠吗？
+            <div class="option" onclick="goto(5)">是——→　前往5</div>
+            <div class="option" onclick="goto(7)">否——→　前往7</div>
+        </div>
+        <div class="question" id="q4">
+            早上睡醒时，经常烦恼该先上厕所还是先刷牙吗？
+            <div class="option" onclick="goto(6)">是——→　前往6</div>
+            <div class="option" onclick="goto(8)">否——→　前往8</div>
+        </div>
+        <div class="question" id="q5">
+            你胆敢在非常感伤的毕业典礼上疯狂地说笑话吗？
+            <div class="option" onclick="goto(9)">是——→　前往9</div>
+            <div class="option" onclick="goto(10)">否——→　前往10</div>
+        </div>
+        <div class="question" id="q6">
+            别人说了一个很难笑的笑话，你胆敢不笑吗？
+            <div class="option" onclick="goto(7)">是——→　前往7</div>
+            <div class="option" onclick="goto(10)">否——→　前往10</div>
+        </div>
+        <div class="question" id="q7">
+            你敢不惧他人讪骂，穿着海滩裤参加重要宴会吗？
+            <div class="option" onclick="goto(11)">是——→　前往11</div>
+            <div class="option" onclick="goto(12)">否——→　前往12</div>
+        </div>
+        <div class="question" id="q8">
+            你讨厌的人要送你免冲水晶马桶，你会收下吗？
+            <div class="option" onclick="goto(10)">是——→　前往10</div>
+            <div class="option" onclick="goto(9)">否——→　前往9</div>
+        </div>
+        <div class="question" id="q9">
+            你很想要和流浪狗玩“主人亲狗”的游戏吗？
+            <div class="option" onclick="goto(11)">是——→　前往11</div>
+            <div class="option" onclick="goto(15)">否——→　前往15</div>
+        </div>
+        <div class="question" id="q10">
+            你叫了一碗牛肉面，老板却端来一盘鱼丸，你会吃下它吗？
+            <div class="option" onclick="goto(13)">是——→　前往13</div>
+            <div class="option" onclick="goto(11)">否——→　前往11</div>
+        </div>
+        <div class="question" id="q11">
+            你敢用发明的“马桶型冰温冷三段漱口机”吗？
+            <div class="option" onclick="goto(16)">是——→　前往16</div>
+            <div class="option" onclick="goto(12)">否——→　前往12</div>
+        </div>
+        <div class="question" id="q12">
+            与你争辩中的朋友给你一个蛋塔，要你住口，你肯答应吗？
+            <div class="option" onclick="goto(15)">是——→　前往15</div>
+            <div class="option" onclick="goto(14)">否——→　前往14</div>
+        </div>
+        <div class="question" id="q13">
+            你很想念故事给动物园里的猴子听吗？
+            <div class="option" onclick="goto(14)">是——→　前往14</div>
+            <div class="option" onclick="goto(18)">否——→　前往18</div>
+        </div>
+        <div class="question" id="q14">
+            你会因为讨厌公司里的订书机，而辞去工作吗？
+            <div class="option" onclick="goto(17)">是——→　前往17</div>
+            <div class="option" onclick="goto(15)">否——→　前往15</div>
+        </div>
+        <div class="question" id="q15">
+            监考老师在你的座位附近走来走去，你会瞪他吗？
+            <div class="option" onclick="goto(18)">是——→　前往18</div>
+            <div class="option" onclick="goto(16)">否——→　前往16</div>
+        </div>
+        <div class="question" id="q16">
+            陌生人要请你吃好吃的火腿蛋炒饭，你会接受吗？
+            <div class="option" onclick="goto(20)">是——→　前往20</div>
+            <div class="option" onclick="goto(19)">否——→　前往19</div>
+        </div>
+        <div class="question" id="q17">
+            你嚼口香糖时，都用牙齿中固定的一边嚼吗？
+            <div class="option" onclick="goto('A')">是——→　前往A</div>
+            <div class="option" onclick="goto('C')">否——→　前往C</div>
+        </div>
+        <div class="question" id="q18">
+            吃蚕豆时，你会连壳带肉吞下吗？
+            <div class="option" onclick="goto('C')">是——→　前往C</div>
+            <div class="option" onclick="goto('D')">否——→　前往D</div>
+        </div>
+        <div class="question" id="q19">
+            说你是神经病，你会承认吗？
+            <div class="option" onclick="goto('B')">是——→　前往B</div>
+            <div class="option" onclick="goto('A')">否——→　前往A</div>
+        </div>
+        <div class="question" id="q20">
+            说你以后可能会变成神经病，你相信吗？
+            <div class="option" onclick="goto('B')">是——→　前往B</div>
+            <div class="option" onclick="goto('D')">否——→　前往D</div>
+        </div>
+    </div>
+
+    <div id="resultContainer">
+        <div class="result" id="resultA">
+            [A] <br>
+            你是个不折不扣的神经病，你达到了全国精神病的四级水平！即使你不承认也没有用，因为光凭你有这麽大的耐心做完这些题目就足以证明了。希望你好好地在 工作上发挥你的耐心美德及铁齿性格，将来不排除有出人头地的可能。
+        </div>
+        <div class="result" id="resultB">
+            [B] <br>
+            你是一群神经病中比较善良的那一个，你也达到了全国精神病四级水平，但你通过这个等级测试多少有点运气的成分！但并不因此代表你的症状就比别人轻。反而你要担心的是，你是这一群神经病中，最有可能受到其他人的影响而使症状再加重的人。希望你没事少跟别人说话。
+        </div>
+        <div class="result" id="resultC">
+        [C] <br>
+        你是一个性格豪迈的神经病，你达到了全国精神病德六级水平！虽然现在的症状满严重的，不过请不要心灰意冷，只要多接触一些有趣的事物，你的精神状态将 会因你的乐观性格而逐渐正常化，恢复到四级水平。但是，要改掉参与危险活动的习惯。
+        </div>
+        <div class="result" id="resultD">
+        [D] <br>
+        你是神经病中的神经病！简直病入膏肓了！你达到了全国精神病的八级水平！更可怕的是，你虽然口口声声地说："我绝不是神经病！" 可是你的潜意识却告诉自己：“我是神经病中的王！”你该接受治疗了。
+        </div>
+        </div>
+        <script>
+            function goto(questionOrResult) {
+                // 隐藏当前问题
+                var currentQuestion = document.querySelector('.question:not([style*="display: none"])');
+                if (currentQuestion) {
+                    currentQuestion.style.display = 'none';
+                }
+        
+                if (isNaN(questionOrResult)) {
+                    // 展示结果
+                    document.getElementById('questionContainer').style.display = 'none';
+                    document.getElementById('result' + questionOrResult).style.display = 'block';
+                } else {
+                    // 展示下一个问题
+                    document.getElementById('q' + questionOrResult).style.display = 'block';
+                }
+            }
+        </script>
+        </body> </html> 
